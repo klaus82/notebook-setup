@@ -1,0 +1,8 @@
+#visual studio code
+- src: gantsign.visual-studio-code
+
+#anaconda
+- src: andrewrothstein.anaconda
+
+#docker
+- src: dochang.docker
