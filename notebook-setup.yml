@@ -1,11 +1,20 @@
+---
 - hosts: all
+  become: yes
+
+  pre_tasks:
+  - name: Install libselinux-python
+    dnf:
+      name: libselinux-python
+      state: latest
+    
   roles:
     - role: gantsign.visual-studio-code
     - role: andrewrothstein.anaconda
     - role: dochang.docker
+
   tasks:
   - name: install the latest version of NodeJS
     dnf:
       name: nodejs
       state: latest
-    become: yes
