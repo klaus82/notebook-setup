@@ -3,9 +3,22 @@
     - role: gantsign.visual-studio-code
     - role: andrewrothstein.anaconda
     - role: dochang.docker
+
   tasks:
-  - name: install the latest version of NodeJS
+  - name: install packages for dev
     dnf:
-      name: nodejs
+      name: {{item}}
       state: latest
+    with_items:
+      - nodejs
+    become: yes
+  
+  - name: Install packages for photo
+    dnf: 
+      name: {{item}} 
+      state: latest
+    with_items:
+      - krita
+      - rawtherapee
+      - darktable
     become: yes
