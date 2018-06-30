@@ -1,4 +1,13 @@
+---
 - hosts: all
+  become: yes
+
+  pre_tasks:
+  - name: Install libselinux-python
+    dnf:
+      name: libselinux-python
+      state: latest
+    
   roles:
     - role: gantsign.visual-studio-code
     - role: andrewrothstein.anaconda
